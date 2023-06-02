@@ -36,7 +36,7 @@ display(medications_df)
 
 # COMMAND ----------
 
-medications_df.write.format("csv").save(awsMntLoc+"/medication_data")
+medications_df.write.format("csv").save(awsMntLoc+"/medication_data1")
 
 # COMMAND ----------
 
