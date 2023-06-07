@@ -1,20 +1,11 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC ##Refreshes Mount to Latest version
-
-# COMMAND ----------
-
-dbutils.fs.refreshMounts()
-
-# COMMAND ----------
-
-# MAGIC %md
 # MAGIC ##Creating connection to AWS Account using Access Key
 
 # COMMAND ----------
 
-access_key = dbutils.widgets.get("access_key")
-secret_key = dbutils.widgets.get("secret_key")
+access_key = ""
+secret_key = ""
 encoded_secret_key = secret_key.replace("/","%2F")
 
 
@@ -25,8 +16,9 @@ encoded_secret_key = secret_key.replace("/","%2F")
 
 # COMMAND ----------
 
-aws_bucket_name = dbutils.widgets.get("aws_bucket_name")
-awsMntLoc = f"/mnt/{dbutils.widgets.get('mount_name')}"
+aws_bucket_name = ""
+mount_name = ""
+awsMntLoc = f"/mnt/{mount_name}"
 
 dbutils.fs.mount(f"s3a://{access_key}:{encoded_secret_key}@{aws_bucket_name}", awsMntLoc)
 awsMntLoc

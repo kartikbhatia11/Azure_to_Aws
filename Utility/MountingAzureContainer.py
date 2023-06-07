@@ -1,21 +1,12 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC ##Refreshes Mount to Latest version
-
-# COMMAND ----------
-
-dbutils.fs.refreshMounts()
-
-# COMMAND ----------
-
-# MAGIC %md
 # MAGIC ##Creating connection to Azure Storage Account using SAS Key
 
 # COMMAND ----------
 
-containerName = dbutils.widgets.get("containerName")
-storageAccountName = dbutils.widgets.get("storageAccountName")
-sas = dbutils.widgets.get("sas")
+containerName = ""
+storageAccountName = ""
+sas = ""
 config = "fs.azure.sas." + containerName+ "." + storageAccountName + ".blob.core.windows.net"
 configs = {config: sas}
 
@@ -26,7 +17,8 @@ configs = {config: sas}
 
 # COMMAND ----------
 
-azureMntLoc = f"/mnt/{dbutils.widgets.get('azureMntLocName')}"
+azureMntLocName = ""
+azureMntLoc = f"/mnt/{azureMntLocName}"
 dbutils.fs.mount(
   source = f"wasbs://{containerName}@{storageAccountName}.blob.core.windows.net/",
   mount_point = azureMntLoc,
