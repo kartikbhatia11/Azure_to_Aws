@@ -13,7 +13,7 @@ dbutils.fs.refreshMounts()
 
 # COMMAND ----------
 
-readLoc = ""
+readLoc = dbutils.widgets.get("readLoc")
 medications_df = spark.read.format("csv").option("header",True).option("inferSchema",True).load("/mnt/"+readLoc)
 display(medications_df)
 
