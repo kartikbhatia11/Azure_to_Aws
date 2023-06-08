@@ -4,5 +4,5 @@
 
 # COMMAND ----------
 
-azureMntLoc = ""
+azureMntLoc = dbutils.widgets.get("azureMntLoc")
 dbutils.fs.unmount(f"/mnt/{azureMntLoc}")

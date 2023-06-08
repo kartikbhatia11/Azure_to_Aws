@@ -4,9 +4,9 @@
 
 # COMMAND ----------
 
-containerName = ""
-storageAccountName = ""
-sas = ""
+containerName = dbutils.widgets.get("containerName")
+storageAccountName = dbutils.widgets.get("storageAccountName")
+sas = dbutils.widgets.get("sas")
 config = "fs.azure.sas." + containerName+ "." + storageAccountName + ".blob.core.windows.net"
 configs = {config: sas}
 
@@ -17,7 +17,7 @@ configs = {config: sas}
 
 # COMMAND ----------
 
-azureMntLocName = ""
+azureMntLocName = dbutils.widgets.get("azureMntLocName")
 azureMntLoc = f"/mnt/{azureMntLocName}"
 dbutils.fs.mount(
   source = f"wasbs://{containerName}@{storageAccountName}.blob.core.windows.net/",

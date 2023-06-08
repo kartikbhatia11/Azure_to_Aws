@@ -4,7 +4,7 @@
 
 # COMMAND ----------
 
-
+dbutils.fs.refreshMounts()
 
 # COMMAND ----------
 
