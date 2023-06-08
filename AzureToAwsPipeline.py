@@ -24,5 +24,6 @@ display(medications_df)
 
 # COMMAND ----------
 
-writeLoc = ""
-medications_df.write.format("csv").save("/mnt/"+writeLoc)
+# MAGIC %md
+# MAGIC writeLoc = ""
+# MAGIC medications_df.write.format("csv").save("/mnt/"+writeLoc)
