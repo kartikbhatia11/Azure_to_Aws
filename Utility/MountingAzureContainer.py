@@ -6,7 +6,7 @@
 
 containerName = dbutils.widgets.get("containerName")
 storageAccountName = dbutils.widgets.get("storageAccountName")
-sas = dbutils.widgets.get("sas")
+sas = dbutils.secrets.get(scope="AzureCredentials", key="sas")
 config = "fs.azure.sas." + containerName+ "." + storageAccountName + ".blob.core.windows.net"
 configs = {config: sas}
 
